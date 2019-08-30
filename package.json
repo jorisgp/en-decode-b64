@@ -1,6 +1,6 @@
 {
   "name": "en-decode-b64",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Encode and decode a string or json object with base64.",
   "main": "index.js",
   "repository": "github:jgpieters/en-decode-b64",
