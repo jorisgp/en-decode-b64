@@ -13,8 +13,22 @@ describe('Array', () => {
             console.log("decoded: " + result)
             assert.equal(result, "abc");
         });
+        it("should encode JavaScript object '{\"name\": \"joris\", \"city\": \"Amsterdam\"}'and after that decode it to to the original value", () => {
+            let person = new Object();
+            person.name = "Joris";
+            person.city = "Amsterdam";
+
+            startHash = hash(person)
+            console.log("input: " + person + " hash: " + startHash)
+            let encodedPerson = result = edb64.encode(person)
+            console.log("encoded: " + encodedPerson)
+            let decodedPerson = edb64.decode(encodedPerson)
+            resultHash = hash(decodedPerson)
+            console.log("decoded: " + decodedPerson + " hash: " + resultHash)
+            assert.equal(startHash, resultHash);
+        });
         it("should encode json '{name: \"joris\", city: \"Amsterdam\"}'and after that decode it to to the original value", () => {
-            let result = { name: "joris", city: "Amsterdam" }
+            let result = { "name": "Joris", "city": "Amsterdam" }
             startHash = hash(result)
             console.log("input: " + result + " hash: " + startHash)
             result = edb64.encode(result)

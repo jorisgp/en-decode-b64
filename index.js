@@ -6,16 +6,18 @@ var stringConstructor = "test".constructor;
 var arrayConstructor = [].constructor;
 var objectConstructor = {}.constructor;
 
+let buffer = Buffer || require("buffer")
+
 let encode = function (content) {
     if (type(content) === ARRAY || type(content) === OBJECT || (type(content) === STRING && isJsonString(content))) {
         content = JSON.stringify(content);
     }
-    let encodedContent = Buffer.from("" + content).toString("base64");
+    let encodedContent = buffer.from("" + content).toString("base64");
     return encodedContent;
 }
 
 let decode = function (content) {
-    let decodedContent = Buffer.from(content, 'base64').toString("ascii");
+    let decodedContent = buffer.from(content, 'base64').toString("ascii");
     if (isJsonString(decodedContent)) {
         decodedContent = JSON.parse(decodedContent);
     }
@@ -39,7 +41,6 @@ let type = (object) => {
 
 
 let isJsonString = function (text) {
-    console.log("isJsonString text: " + text)
     if (/^[\],:{}\s]*$/.test(text.replace(/\\["\\\/bfnrtu]/g, '@').
         replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
         replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
