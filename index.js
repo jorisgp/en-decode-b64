@@ -6,18 +6,26 @@ var stringConstructor = "test".constructor;
 var arrayConstructor = [].constructor;
 var objectConstructor = {}.constructor;
 
-let Bufferr = require('buffer/').Buffer
+let localBuffer = global.Buffer || require('buffer').Buffer
 
 let encode = function (content) {
+    if (!content) {
+        return content
+    }
     if (type(content) === ARRAY || type(content) === OBJECT || (type(content) === STRING && isJsonString(content))) {
         content = JSON.stringify(content);
     }
-    let encodedContent = Bufferr.from("" + content).toString("base64");
+    let encodedContent = localBuffer.from("" + content).toString("base64");
     return encodedContent;
 }
 
 let decode = function (content) {
-    let decodedContent = Bufferr.from(content, 'base64').toString("ascii");
+
+    if (!content) {
+        return content
+    }
+
+    let decodedContent = localBuffer.from(content, 'base64').toString("ascii");
     if (isJsonString(decodedContent)) {
         decodedContent = JSON.parse(decodedContent);
     }
