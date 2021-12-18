@@ -13,54 +13,52 @@ npm install --save en-decode-b64
 Here is an basic example of en-decode-b64 encoding a String.
 
 ```js
-
 import edb64 from "en-decode-b64";
 
-const string = "abc"
-   
-const encodedString = edb64.encode(string)
+const string = "abc";
 
-console.log(encodedString) // YWJj
+const encodedString = edb64.encode(string);
 
-const decodedString = edb64.decode(encodedString)
+console.log(encodedString); // YWJj
 
-console.log(decodedString) // abc
+const decodedString = edb64.decode(encodedString);
 
+console.log(decodedString); // abc
 ```
 
 Here is an basic example of en-decode-b64 encoding a JSON Object.
 
 ```js
-
 import edb64 from "en-decode-b64";
 
-const jsonObject = { name: "Joris", city: "Amsterdam" }
+const jsonObject = { name: "Joris", city: "Amsterdam" };
 
-const encodedJsonObect = edb64.encode(jsonObject)
+const encodedJsonObect = edb64.encode(jsonObject);
 
-console.log(encodedJsonObect) // eyJuYW1lIjoiam9yaXMiLCJjaXR5IjoiQW1zdGVyZGFtIn0=
+console.log(encodedJsonObect); // eyJuYW1lIjoiam9yaXMiLCJjaXR5IjoiQW1zdGVyZGFtIn0=
 
-const decodedJsonObect = edb64.decode(encodedJsonObect)
+const decodedJsonObect = edb64.decode(encodedJsonObect);
 
-console.log(decodedJsonObect) // { name: "Joris", city: "Amsterdam" }
-
+console.log(decodedJsonObect); // { name: "Joris", city: "Amsterdam" }
 ```
 
 Here is an basic example of en-decode-b64 encoding a JSON Array.
-```js
 
+```js
 import edb64 from "en-decode-b64";
 
-const jsonArray = [{"name":"Joris","city":"Amsterdam"},{"name":"Freek","city":"Assendelft"}]
+const jsonArray = [
+  { name: "Joris", city: "Amsterdam" },
+  { name: "Freek", city: "Assendelft" },
+];
 
-const encodedJsonArray = edb64.encode(jsonArray)
+const encodedJsonArray = edb64.encode(jsonArray);
 
-console.log(encodedJsonArray) // W3sibmFtZSI6ImpvcmlzIiwiY2l0eSI6IkFtc3RlcmRhbSJ9LHsibmFtZSI6IkZyZWVrIiwiY2l0eSI6IkFzc2VuZGVsZnQifV0=
+console.log(encodedJsonArray); // W3sibmFtZSI6ImpvcmlzIiwiY2l0eSI6IkFtc3RlcmRhbSJ9LHsibmFtZSI6IkZyZWVrIiwiY2l0eSI6IkFzc2VuZGVsZnQifV0=
 
-const decodedJsonArray = edb64.decode(encodedJsonArray)
+const decodedJsonArray = edb64.decode(encodedJsonArray);
 
-console.log(decodedJsonArray) // [{"name":"Joris","city":"Amsterdam"},{"name":"Freek","city":"Assendelft"}]
-
+console.log(decodedJsonArray); // [{"name":"Joris","city":"Amsterdam"},{"name":"Freek","city":"Assendelft"}]
 ```
 
 ## License
@@ -69,7 +67,5 @@ console.log(decodedJsonArray) // [{"name":"Joris","city":"Amsterdam"},{"name":"F
 
 [npm-image]: https://img.shields.io/npm/v/en-decode-b64.svg
 [npm-url]: https://npmjs.org/package/en-decode-b64
-[travis-image]: https://img.shields.io/travis/live-js/live-xxx/master.svg
-[travis-url]: https://travis-ci.org/live-js/live-xxx
 [coveralls-image]: https://coveralls.io/repos/github/jgpieters/en-decode-b64/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/jgpieters/en-decode-b64?branch=master
