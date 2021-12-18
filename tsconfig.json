@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "es2020",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./lib/esm"
+  },
+  "include": ["src"],
+  "exclude": ["src/test"]
+}
